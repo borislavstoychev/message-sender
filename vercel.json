@@ -1,3 +1,9 @@
 {
-  "routes": [{ "src": "/(.*)", "dest": "/message-sender/main.go" }]
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/api(.*)",
+      "destination": "/api/server.go"
+    }
+  ]
 }
