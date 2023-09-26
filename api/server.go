@@ -2,6 +2,7 @@ package api
 
 import (
 	"io"
+	"net/http"
 	"os"
 	"sender/helpers"
 
@@ -10,13 +11,14 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
+var r *gin.Engine
+
 func router() {
 	if os.Getenv("APP_MODE") != "DEBUG" {
 		gin.SetMode(gin.ReleaseMode)
 		gin.DefaultWriter = io.Discard
 	}
 
-	r := gin.New()
 	r.Use(helpers.CustomRecoveryWithWriter())
 	r.Use(helpers.GinFormatMiddleware())
 	r.GET("/", func(context *gin.Context) {
@@ -40,6 +42,7 @@ func router() {
 }
 
 func init() {
+	r = gin.New()
 	helpers.InitLogger("message_sender")
 	err := godotenv.Load(".env")
 	if err != nil {
@@ -50,4 +53,9 @@ func init() {
 	}
 	router()
 
+}
+
+// This script is needed for vercel
+func Hendler(w http.ResponseWriter, rout *http.Request) {
+	r.ServeHTTP(w, rout)
 }
