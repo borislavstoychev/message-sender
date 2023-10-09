@@ -9,8 +9,7 @@ const products: Product[] = [
     handle: "string",
     description: "Very big Dog!",
     price: 200,
-    imageSrc:
-      "https://cdn.shopify.com/s/files/1/2800/2014/products/mockup-fc750eaa.jpg?v=1616988549",
+    imageSrc: "https://m.media-amazon.com/images/I/61pLuKBfGhL._AC_SL1500_.jpg",
   },
   {
     title: "dog",
@@ -18,7 +17,7 @@ const products: Product[] = [
     description: "Very big Dog!",
     price: 200,
     imageSrc:
-      "https://cdn.shopify.com/s/files/1/2800/2014/products/mockup-fc750eaa.jpg?v=1616988549",
+      "https://i.etsystatic.com/43546135/r/il/bd6e45/5118617260/il_fullxfull.5118617260_rvua.jpg",
   },
   {
     title: "dog",
@@ -26,7 +25,7 @@ const products: Product[] = [
     description: "Very big Dog!",
     price: 200,
     imageSrc:
-      "https://cdn.shopify.com/s/files/1/2800/2014/products/mockup-fc750eaa.jpg?v=1616988549",
+      "https://i.etsystatic.com/43546135/r/il/bd6e45/5118617260/il_fullxfull.5118617260_rvua.jpg",
   },
   {
     title: "dog",
@@ -34,12 +33,11 @@ const products: Product[] = [
     description: "Very big Dog!",
     price: 200,
     imageSrc:
-      "https://cdn.shopify.com/s/files/1/2800/2014/products/mockup-fc750eaa.jpg?v=1616988549",
+      "https://i.etsystatic.com/43546135/r/il/bd6e45/5118617260/il_fullxfull.5118617260_rvua.jpg",
   },
 ];
 
 export default function Home() {
-  products.map((product, index) => console.log(product));
   return (
     <div className="flex flex-col justify-between min-h-screen">
       <Navigation />
