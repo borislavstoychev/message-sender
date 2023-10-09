@@ -20,7 +20,7 @@ func router() {
 	r = gin.New()
 	r.Use(helpers.CustomRecoveryWithWriter())
 	r.Use(helpers.GinFormatMiddleware())
-	r.LoadHTMLGlob("views/*")
+	r.LoadHTMLGlob("./views/*")
 	r.Static("/assets", "./public/assets")
 	r.GET("/", controllers.Home)
 	r.POST("/send", helpers.MessageSender)
