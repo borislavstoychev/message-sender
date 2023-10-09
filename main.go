@@ -3,6 +3,7 @@ package main
 import (
 	"io"
 	"os"
+	"sender/controllers"
 	"sender/helpers"
 
 	"github.com/gin-gonic/gin"
@@ -31,9 +32,9 @@ func main() {
 	r := gin.New()
 	r.Use(helpers.CustomRecoveryWithWriter())
 	r.Use(helpers.GinFormatMiddleware())
-	r.GET("/", func(context *gin.Context) {
-		context.JSON(200, "hello go from vercel !!!!")
-	})
+	r.LoadHTMLGlob("views/*")
+	r.Static("/assets", "./public/assets")
+	r.GET("/", controllers.Home)
 	r.POST("/send", helpers.MessageSender)
 	r.POST("/create-verify", helpers.CreateVerify)
 	r.POST("/verify", helpers.Verify)
