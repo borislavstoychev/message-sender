@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-type Product = {
+export type Product = {
   title: string;
   handle: string;
   description: string;
@@ -16,7 +16,6 @@ function ProductCard(product: Product) {
   const price = product.price;
 
   const imageNode = product.imageSrc;
-  console.log(imageNode);
   return (
     <Link
       to={`/products/${handle}`}
@@ -26,7 +25,7 @@ function ProductCard(product: Product) {
         <img
           src={imageNode}
           alt=""
-          className="transform duration-500 ease-in-out hover:scale-110"
+          className="object-cover h-full transform duration-500 ease-in-out hover:scale-110"
         />
       </div>
       <div className="h-48 relative">
@@ -37,10 +36,10 @@ function ProductCard(product: Product) {
           {description}
         </div>
         <div
-          className="text-palette-dark font-primary font-medium text-base absolute bottom-0 right-0 mb-4 pl-8 pr-4 pb-1 pt-2 bg-palette-lighter 
+          className="text-purple-900 font-primary font-medium text-xl absolute bottom-0 right-0 mb-4 pl-8 pr-4 pb-1 pt-2 bg-palette-lighter 
             rounded-tl-sm triangle"
         >
-          $<span className="text-lg">{price}</span>
+          $<span>{price}</span>
         </div>
       </div>
     </Link>

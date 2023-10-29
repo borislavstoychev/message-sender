@@ -4,11 +4,13 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
 function Navigation() {
   // const cart = useCartContext()[0]
-  const [cartItems, setCartItems] = useState(0);
-
+  // const [cartItems, setCartItems] = useState(0);
+  const cartItems = useSelector((state: RootState) => state.cart.totalQuantity);
   // useEffect(() => {
   //   let numItems = 0
   //   cart.forEach(item => {
@@ -42,7 +44,7 @@ function Navigation() {
               icon={faShoppingCart}
             />
             {cartItems === 0 ? null : (
-              <div className="absolute top-0 right-0 text-xs bg-yellow-300 text-gray-900 font-semibold rounded-full py-1 px-2 transform translate-x-10 -translate-y-3">
+              <div className="absolute top-0 right-0 text-xs bg-yellow-300 text-gray-900 font-semibold rounded-full py-1 px-2 transform translate-x-3 -translate-y-5">
                 {cartItems}
               </div>
             )}
